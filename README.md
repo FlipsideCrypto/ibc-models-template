@@ -1,7 +1,7 @@
 ## Repo Set Up
 1. Create a new repository from the [ibc-models-template](https://github.com/FlipsideCrypto/ibc-models-template)
 2. Update all references to `<ibc_chain>` to the new chain name, in lowercase by using find and replace
-3. Update the fsc-evm package version in `packages.yml` to the latest version
+3. Update the fsc-ibc package version in `packages.yml` to the latest version
 4. Set up the rest of the dbt project, where applicable, including but not limited to:
     - `dbt_project.yml` (enable/disable packages, vars, etc.)
     - `.github/workflows` (update tags, etc.)
@@ -97,9 +97,9 @@ The following variables can be used to control various aspects of the dbt run. U
 
 ## FSC_IBC
 
-`fsc_ibc` is a collection of macros, models, and other resources that are used to build the Flipside Crypto EVM models.
+`fsc_ibc` is a collection of macros, models, and other resources that are used to build the Flipside Crypto IBC models.
 
-For more information on the `fsc_ibc` package, see the [FSC_IBC Wiki](https://github.com/FlipsideCrypto/fsc-evm/wiki).
+For more information on the `fsc_ibc` package, see the [FSC_IBC Wiki](https://github.com/FlipsideCrypto/fsc-ibc/wiki).
 
 ## Applying Model Tags
 
@@ -108,8 +108,8 @@ For more information on the `fsc_ibc` package, see the [FSC_IBC Wiki](https://gi
 Database and schema tags are applied via the `fsc_ibc.add_database_or_schema_tags` macro.  These tags are inherited by their downstream objects.  To add/modify tags call the appropriate tag set function within the macro.
 
 ```
-{{ fsc_evm.set_database_tag_value('SOME_DATABASE_TAG_KEY','SOME_DATABASE_TAG_VALUE') }}
-{{ fsc_evm.set_schema_tag_value('SOME_SCHEMA_TAG_KEY','SOME_SCHEMA_TAG_VALUE') }}
+{{ fsc_ibc.set_database_tag_value('SOME_DATABASE_TAG_KEY','SOME_DATABASE_TAG_VALUE') }}
+{{ fsc_ibc.set_schema_tag_value('SOME_SCHEMA_TAG_KEY','SOME_SCHEMA_TAG_VALUE') }}
 ```
 
 ### Model tags
