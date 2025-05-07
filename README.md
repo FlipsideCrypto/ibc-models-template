@@ -73,17 +73,12 @@ The following variables can be used to control various aspects of the dbt run. U
    dbt run --vars '{"STREAMLINE_INVOKE_STREAMS":true,"STREAMLINE_USE_DEV_FOR_EXTERNAL_TABLES":true}' -m ...
    ```
 
-3. Heal specific curated models:
-   ```
-   dbt run --vars '{"HEAL_CURATED_MODEL":["axelar","across","celer_cbridge"]}' -m ...
-   ```
-
-4. Update Snowflake tags for a specific model:
+3. Update Snowflake tags for a specific model:
    ```
    dbt run --vars '{"UPDATE_SNOWFLAKE_TAGS":true}' -s models/silver/utilities/silver__number_sequence.sql
    ```
 
-5. Start all GHA tasks:
+5. Start all GHA tasks: (coming soon!)
    ```
    dbt seed -s github_actions__workflows && dbt run -m models/github_actions --full-refresh && dbt run-operation fsc_evm.create_gha_tasks --vars '{"START_GHA_TASKS":True}'
    ```
