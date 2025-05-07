@@ -17,7 +17,7 @@ test-paths: ["tests"]
 seed-paths: ["data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
-docs-paths: ["dbt_packages/fsc_evm/doc_descriptions", "models/doc_descriptions", "models"]
+docs-paths: ["dbt_packages/fsc_ibc/doc_descriptions", "models/doc_descriptions", "models"]
 
 target-path: "target" # directory which will store compiled SQL files
 clean-targets: # directories to be removed by `dbt clean`
@@ -32,11 +32,11 @@ tests:
     +store_failures: true
 
 on-run-start:
-  - "{{ fsc_evm.create_sps() }}"
-  - "{{ fsc_evm.create_udfs() }}"
+  - "{{ create_sps() }}"
+  - "{{ create_udfs() }}"
 
 on-run-end:
-  - '{{ fsc_evm.apply_meta_as_tags(results) }}'
+  - '{{ apply_meta_as_tags(results) }}'
 
 dispatch:
   - macro_namespace: dbt
@@ -62,7 +62,7 @@ models:
   livequery_base:
     +materialized: ephemeral
   fsc_ibc:
-    +enabled: false # disable fsc_evm package by default
+    +enabled: false # disable fsc_ibc package by default
     +copy_grants: true
     +persist_docs:
       relation: true
