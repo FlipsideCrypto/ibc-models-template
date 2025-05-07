@@ -32,8 +32,8 @@ tests:
     +store_failures: true
 
 on-run-start:
-  - "{{ create_sps() }}"
-  - "{{ create_udfs() }}"
+  - "{{ fsc_ibc.create_sps() }}"
+  - "{{ fsc_ibc.create_udfs() }}"
 
 on-run-end:
   - '{{ apply_meta_as_tags(results) }}'
