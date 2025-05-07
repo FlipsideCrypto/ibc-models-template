@@ -36,7 +36,7 @@ on-run-start:
   - "{{ fsc_ibc.create_udfs() }}"
 
 on-run-end:
-  - '{{ apply_meta_as_tags(results) }}'
+  - '{{ fsc_ibc.apply_meta_as_tags(results) }}'
 
 dispatch:
   - macro_namespace: dbt
