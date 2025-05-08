@@ -13,12 +13,7 @@ sources:
     tables:
       - name: blocks
       - name: transactions
-      - name: receipts
-      - name: receipts_by_hash
-      - name: traces
-      - name: confirm_blocks
-      - name: decoded_logs
-      - name: contract_abis
+      - name: tx_counts
   - name: complete_streamline
     database: "{{ target.database }}"
     schema: streamline
