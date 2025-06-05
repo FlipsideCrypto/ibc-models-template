@@ -8,6 +8,7 @@ deploy_livequery:
 	@set -e; \
 	dbt run-operation fsc_ibc.drop_livequery_schemas --vars '{"UPDATE_UDFS_AND_SPS": true}' -t $(DBT_TARGET); \
 	dbt run -m livequery_models.deploy.core --vars '{"UPDATE_UDFS_AND_SPS": true}' -t $(DBT_TARGET); \
+	dbt run -m livequery_models.deploy.core.live --vars '{"UPDATE_UDFS_AND_SPS": true}' -t $(DBT_TARGET); \
 	dbt run-operation fsc_ibc.livequery_grants --vars '{"UPDATE_UDFS_AND_SPS": true}' -t $(DBT_TARGET)
 
 deploy_chain_phase_1:
