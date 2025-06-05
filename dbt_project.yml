@@ -26,8 +26,8 @@ clean-targets: # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 tests:
-  <ibc_chain>_models: # replace with the name of the chain
-    +store_failures: true # all tests
+  #<ibc_chain>_models: # replace with the name of the chain
+    #+store_failures: true # all tests
   fsc_ibc:
     +store_failures: true
 
@@ -53,14 +53,14 @@ query-comment:
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
 models:
-  <ibc_chain>_models: # replace with the name of the chain
-    +copy_grants: true
-    +persist_docs:
-      relation: true
-      columns: true
-    +on_schema_change: "append_new_columns"
-  livequery_base:
-    +materialized: ephemeral
+  #<ibc_chain>_models: # replace with the name of the chain
+    #+copy_grants: true
+    #+persist_docs:
+      #relation: true
+      #columns: true
+    #+on_schema_change: "append_new_columns"
+  #livequery_base:
+    #+materialized: ephemeral
   fsc_ibc:
     +enabled: false # disable fsc_ibc package by default
     +copy_grants: true
@@ -70,22 +70,22 @@ models:
     +on_schema_change: "append_new_columns"
     main_package:
       +enabled: false # disable main_package by default, enabled other packages as needed
-      admin:
-        +enabled: true
+      #admin:
+        #+enabled: true
       core:
         +enabled: true # enable subpackages, as needed
       github_actions:
         +enabled: true
-      labels:
-        +enabled: true
-      observability:
-        +enabled: true
-      prices:
-        +enabled: true
-      utils:
-        +enabled: true
-    scores_package:
-      +enabled: false
+      #labels:
+        #+enabled: true
+      #observability:
+        #+enabled: true
+      #prices:
+        #+enabled: true
+      #utils:
+        #+enabled: true
+    #scores_package:
+      #+enabled: false
 
 vars:
   "dbt_date:time_zone": GMT
